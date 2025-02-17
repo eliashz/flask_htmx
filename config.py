@@ -2,8 +2,8 @@ class Config(object):
     DEBUG = False
     TESTING = False
     CSRF_ENABLED = True
-    SECRET_KEY = "this-really-needs-to-be-changed"
-    SQLALCHEMY_DATABASE_URI = "sqlite:///db-sqlite"
+    SECRET_KEY = "guess-me"
+    SQLALCHEMY_DATABASE_URI = "sqlite:///db.sqlite"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     BCRYPT_LOG_ROUNDS = 13
     WTF_CSRF_ENABLED = True
@@ -18,6 +18,7 @@ class DevelopmentConfig(Config):
 
 class TestingConfig(Config):
     TESTING = True
+    DEBUG = True
     SQLALCHEMY_DATABASE_URI = "sqlite:///testdb.sqlite"
     BCRYPT_LOG_ROUNDS = 1
     WTF_CSRF_ENABLED = False
@@ -25,5 +26,3 @@ class TestingConfig(Config):
 class ProductionConfig(Config):
     DEBUG = False
     DEBUG_TB_ENABLED = False
-
-    

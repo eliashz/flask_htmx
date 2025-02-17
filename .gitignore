@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 migrations/ 
-=======
-migrations/
->>>>>>> master
+dumps/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
