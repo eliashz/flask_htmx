@@ -1,11 +1,14 @@
 from flask import render_template, request
 from core import app
 from core.models import Book
+import math
 
 @app.route('/')
 def index():
-    books = Book.query.limit(20).all()
-    return render_template('index.html', books=books)
+    books_per_page = 20
+    pages = math.ceil(Book.query.count() / books_per_page)
+    books = Book.query.paginate(page=1, per_page=books_per_page)
+    return render_template('index.html', books=books, pages=pages + 1)
 
 @app.route('/search')
 def search():
