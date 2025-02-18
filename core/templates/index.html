@@ -42,11 +42,14 @@
     </table>
   </section>
   {% if pages > 1 %}
-    <p>
-    {% for i in range(1, pages ) %}
-      {{ i }} -
+    <div class="has-text-centered">
+    {% for page in range(1, pages ) %}
+      <p class="is-inline is-clickable" hx-get="/pagination/{{ page }}" hx-target="#results">{{ page }}</p> 
+      {% if page != pages - 1 %}
+       -
+      {% endif %}
     {% endfor %}
-    </p>
+    </div>
   {% endif %}
 </body>
 </html>

@@ -18,3 +18,8 @@ def search():
     else:
         results = Book.query.limit(20).all()
     return render_template('search.html', results=results)
+
+@app.route('/pagination/<int:page>')
+def pagination(page):
+    results = Book.query.paginate(page=page, per_page=20)
+    return render_template('search.html', results=results)
